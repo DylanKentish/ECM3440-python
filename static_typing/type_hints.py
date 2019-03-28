@@ -7,7 +7,7 @@ name : str = "michael"
 num = 2
 
 # Also function arguments and return value
-def my_func( my_arg : str, count : int = 1) -> str:
+def my_func(my_arg:str, count:int=1) -> str:
     return my_arg*count
 
 print(my_func("x"))
