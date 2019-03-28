@@ -68,6 +68,25 @@ def my_func(my_arg:str, count:int=1) -> str:
 
 ### Generators and yield
 
+You will be familiar with `range()`, which is often used in `for` loops like this:
+
+```python
+for n in range(3,13,3):
+    print(n)
+```
+In Python We can write our own generators by using the `yield` keyword rather than  `return`, like this:
+
+```python
+def my_generator(count):
+    n = 0
+    while n < count:
+        yield "n is " + str(n)
+        n += 1
+
+for s in my_generator(4):
+    print(s)
+```
+
 ## Programming styles and patterns
 
 ### Pure functions and methods
