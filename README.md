@@ -127,11 +127,21 @@ This style of programming is called *functional programming*.
 
 ## Concurrency
 
-Programs that run continuously will generally need to accept new input, create output and perform some data transformation at the same time. This is called `concurrency` and can be achieved in numerous ways.  
+Programs that run continuously will generally need to accept new input, create output and perform some data transformation at the same time. This is called `concurrency` and can be achieved in numerous ways. This is a big subject with a lot of
+theoretical and practical considerations.  For the purposes of designing and
+developing business applications it isn't necessary to consider parallel computation of the type that might be used in scientific programming or 3D graphics.
 
 ### Coroutines
 
 ### Threads
+
+<https://docs.python.org/3/library/threading.html>
+
+### Multiprocessing
+
+This is an alternative style of concurrency that uses capabilities built into the operating system.  It is effectively equivalent to running two, or more, copies of the Python interpreter, all running the same Python program but at any given time running different functions or using different data.
+
+<https://docs.python.org/3/library/multiprocessing.html>
 
 ## Building, testing and debugging
 
