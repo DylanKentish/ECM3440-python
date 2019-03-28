@@ -135,6 +135,8 @@ developing business applications it isn't necessary to consider parallel computa
 
 ### Threads
 
+<https://pymotw.com/2/threading/>
+
 <https://docs.python.org/3/library/threading.html>
 
 ### Multiprocessing
