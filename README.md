@@ -133,6 +133,11 @@ developing business applications it isn't necessary to consider parallel computa
 
 ### Coroutines
 
+An event loop runs in a thread (typically the main thread) and executes all callbacks and Tasks in its thread. While a Task is running in the event loop, no other Tasks can run in the same thread. When a Task executes an await expression, the running Task gets suspended, and the event loop executes the next Task.
+<https://docs.python.org/3/library/asyncio-dev.html>
+
+<https://docs.python.org/3/library/asyncio-task.html>
+
 ### Threads
 
 <https://pymotw.com/2/threading/>
