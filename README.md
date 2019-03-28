@@ -66,9 +66,13 @@ def my_func(my_arg:str, count:int=1) -> str:
 <https://realpython.com/python-metaclasses/>
 
 
-#### Pure functions and methods
+### Generators and yield
 
-It is worth noting that the methods of built in Python types such as `str` and `dict` are *pure*, by which it is meant that they have no side effects. Those new to Python are
+## Programming styles and patterns
+
+### Pure functions and methods
+
+It is worth noting that the methods of built in Python *types* such as `str` and `dict` are *pure*, by which it is meant that they have no side effects. Those new to Python are
 sometimes caught out by this, especially the string methods such as `upper()`. For example:
 
 ```python
@@ -97,9 +101,7 @@ This code recognizes that Python strings are *immutable*. The string methods suc
 label = "a&b".replace("&","_").upper().rjust(8)
 ```
 
-This style of programming is called *functional programming*. 
-
-### Generators and yield
+This style of programming is called *functional programming*.
 
 ## Concurrency
 
