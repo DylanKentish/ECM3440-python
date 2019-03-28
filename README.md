@@ -65,7 +65,6 @@ def my_func(my_arg:str, count:int=1) -> str:
 
 <https://realpython.com/python-metaclasses/>
 
-
 ### Generators and yield
 
 You will be familiar with `range()`, which is often used in `for` loops like this:
@@ -74,6 +73,7 @@ You will be familiar with `range()`, which is often used in `for` loops like thi
 for n in range(3,13,3):
     print(n)
 ```
+
 In Python We can write our own generators by using the `yield` keyword rather than  `return`, like this:
 
 ```python
@@ -88,6 +88,9 @@ for s in my_generator(4):
 ```
 
 ## Programming styles and patterns
+
+Being familiar with the syntax of a programming language and the libraries of functions available is only a part of the skills needed to turn designs into
+working software.  There are various programming styles, or idioms, and patterns that enable programmers to recognise, and implement, common programming tasks.
 
 ### Pure functions and methods
 
@@ -123,6 +126,8 @@ label = "a&b".replace("&","_").upper().rjust(8)
 This style of programming is called *functional programming*.
 
 ## Concurrency
+
+Programs that run continuously will generally need to accept new input, create output and perform some data transformation at the same time. This is called `concurrency` and can be achieved in numerous ways.  
 
 ### Coroutines
 
