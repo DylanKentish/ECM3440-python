@@ -6,16 +6,24 @@ from curses import KEY_RIGHT, KEY_LEFT, KEY_UP, KEY_DOWN
 from random import randint
 
 class Snake:
-    coords = [[4,10], [4,9], [4,8]]  # Initial snake co-ordinates
+    _coords = [[4,10], [4,9], [4,8]]  # Initial snake co-ordinates
 
     def insert( self, pos, xy ):
-        self.coords.insert(pos, xy)
+        self._coords.insert(pos, xy)
     def y(self):
-        return self.coords[0][0]
+        return self._coords[0][0]
     def x(self):
-        return self.coords[0][1]
+        return self._coords[0][1]
     def len(self):
-        return len(self.coords)
+        return len(self._coords)
+    def head(self,x=None,y=None):
+        if x != None:
+            self._coords[0][1] = x
+        if y != None:
+            self._coords[0][0] = y
+        return self._coords[0]
+    def coords(self):
+        return self._coords
 
 def main():
 
@@ -62,25 +70,25 @@ def main():
         snake.insert(0, [snake.y() + (key == KEY_DOWN and 1) + (key == KEY_UP and -1), snake.x() + (key == KEY_LEFT and -1) + (key == KEY_RIGHT and 1)])
 
         # If snake crosses the boundaries, make it enter from the other side
-        if snake.y() == 0: snake.coords[0][0] = 18
-        if snake.x() == 0: snake.coords[0][1] = 58
-        if snake.y() == 19: snake.coords[0][0] = 1
-        if snake.x() == 59: snake.coords[0][1] = 1
+        if snake.y() == 0: snake.head(y=18)
+        if snake.x() == 0: snake.head(x=58)
+        if snake.y() == 19: snake.head(y=1)
+        if snake.x() == 59: snake.head(x=1)
 
         # Exit if snake runs over itself
         #if snake.coords[0] in snake.coords[1:]: break
 
 
-        if snake.coords[0] == food:                                            # When snake eats the food
+        if snake.head() == food:                                            # When snake eats the food
             curses.beep()
             food = []
             score += 1
             while food == []:
                 food = [randint(1, 18), randint(1, 58)]                 # Calculating next food's coordinates
-                if food in snake.coords: food = []
+                if food in snake.coords(): food = []
             win.addch(food[0], food[1], '*')
         else:
-            last = snake.coords.pop()                                          # [1] If it does not eat the food, length decreases
+            last = snake.coords().pop()                                          # [1] If it does not eat the food, length decreases
             win.addch(last[0], last[1], ' ')
         win.addch(snake.y(), snake.x(), '#')
 
