@@ -15,7 +15,6 @@ environments.
 
 ## Language features
 
-
 ### Type hints and linting
 
 If you edit your Python scripts using an editor, or
@@ -75,6 +74,41 @@ def my_func(my_arg:str, count:int=1) -> str:
 * <https://code.visualstudio.com/docs/python/linting>
 
 ### Classes and decorators
+
+Classes, or objects, are user defined *types*.  Unlike other object oriented languages, for example Java, all attributes and methods are *public*.  Here is a very simple example:
+
+```python
+class Counter:
+    # Attributes
+    count = 0
+
+    # Methods
+    def increment(self):
+        self.count += 1
+        return self.count
+
+    def decrement(self):
+        self.count -= 1
+        return self.count
+
+    def reset(self):
+        self.count = 0
+```
+
+```python
+class Counter:
+    # Attributes
+    _count : int
+
+    # Constructor
+    def __init__(count : int = 0):
+        self._count = count
+
+    @staticmethod
+    def sayHello():  # note, no 'self' argument
+        print("hello")
+        return
+```
 
 <https://realpython.com/python-metaclasses/>
 
