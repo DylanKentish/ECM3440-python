@@ -118,9 +118,11 @@ notation.
 
 #### Data classes
 
-Another application of *decorators* is with the `dataclass` module.
+Another application of *decorators* is with the `dataclass` module.  Using the `@dataclass` decorator will automatically
+create a constructor method `__init__`, and also `__repr__` and `__eq__` methods.
 
-<https://realpython.com/python37-new-features/>
+<https://realpython.com/python-data-classes/>
+
 
 ## Programming styles and patterns
 
