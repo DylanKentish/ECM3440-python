@@ -102,9 +102,16 @@ for s in my_generator(4):
 
 ### Miscellaneous new features
 
-    F strings <https://realpython.com/python-f-strings/>
+From time to time new features are added to the Python
+language.  These new features rarely make earlier
+features obsolete, as this would break many existing
+programs. Instead new features typically provide
+and easier or tidier way of doing common things.
 
-    data classes <https://realpython.com/python37-new-features/>
+
+F strings <https://realpython.com/python-f-strings/>
+
+Data classes <https://realpython.com/python37-new-features/>
 
 ## Programming styles and patterns
 
