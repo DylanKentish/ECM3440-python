@@ -108,10 +108,19 @@ features obsolete, as this would break many existing
 programs. Instead new features typically provide
 and easier or tidier way of doing common things.
 
+#### F strings
 
-F strings <https://realpython.com/python-f-strings/>
+An *f string* is a Python string literal with the letter *f* before the opening quote. Within the string the value of
+named variables can be included using a simple brace
+notation.
 
-Data classes <https://realpython.com/python37-new-features/>
+ <https://realpython.com/python-f-strings/>
+
+#### Data classes
+
+Another application of *decorators* is with the `dataclass` module.
+
+<https://realpython.com/python37-new-features/>
 
 ## Programming styles and patterns
 

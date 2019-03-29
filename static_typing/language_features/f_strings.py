@@ -15,5 +15,9 @@ def fn():
     # Or the traditional style
     print("4. Today is %s, and tomorrow is %s." % (today, tomorrow))
 
-print(f"Running Python script {__file__}")
+print(
+f"""
+Running Python script {__file__}
+"""
+)
 fn()
