@@ -20,9 +20,14 @@ environments.
 
 If you edit your Python scripts using an editor, or
 IDE, that has Python editing features you will be aware that many programming errors,
-particularly syntax errors, can be spotted by editors. This form of program checking is called 'linting' because the first such static testing program was called 'lint' as it found the 'fluff' in your programs.  Static testing isn't limited to finding syntax errors, which you
+particularly syntax errors, can be spotted by editors. This form of program checking is called 'linting' because the first such static testing program was called 'lint' as it found the 'fluff' in your programs.  
+
+Like code reviews conducted by human reviewers there is no requirement that the program is complete or even that it is syntactically correct. 
+Static testing isn't limited to finding syntax errors, which you
 would find out about soon enough when they prevent your program from running. Linting can also
-find semantic errors such as unreachable lines of code.  As Python is a dynamically typed language, there is another sort of error that we encounter, the `TypeError`.  For example a common mistake is to write something like this:
+find semantic errors such as unreachable lines of code.
+
+ As Python is a dynamically typed language, there is another sort of error that we encounter, the `TypeError`.  For example a common mistake is to write something like this:
 
 ```python
 num = input("type a number ")
@@ -61,6 +66,14 @@ incorrect, but we now know there is an error to be fixed.
 def my_func(my_arg:str, count:int=1) -> str:
 ```
 
+#### Static checking tools
+
+* <http://mypy-lang.org/>
+
+* <https://www.pylint.org/>
+
+* <https://code.visualstudio.com/docs/python/linting>
+
 ### Classes and decorators
 
 <https://realpython.com/python-metaclasses/>
@@ -86,6 +99,12 @@ def my_generator(count):
 for s in my_generator(4):
     print(s)
 ```
+
+### Miscellaneous new features
+
+    F strings <https://realpython.com/python-f-strings/>
+
+    data classes <https://realpython.com/python37-new-features/>
 
 ## Programming styles and patterns
 

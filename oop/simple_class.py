@@ -1,31 +1,10 @@
 # simple_class.py
 
-#def hi_there(func):
-#    print("hi")
-#    func()
-#    print("bye")
-
-import functools
-
-class hi_there(object):
-    def __init__(self, func):
-        print("We're getting ready...")
-        self.func = func
- 
-    def __call__(self,*args):
-        print("It's happening...")
-        return self.func(*args)
-    
-    def __get__(self, obj, objtype):
-        '''Support instance methods.'''
-        return functools.partial(self.__call__, obj)
-
 class Counter:
     # Attributes
     count : int = 0
 
     # Methods
-    @hi_there
     def increment(self) -> int:
         self.count += 1
         return self.count
