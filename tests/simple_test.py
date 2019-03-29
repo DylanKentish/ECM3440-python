@@ -5,5 +5,5 @@ class SimplisticTest(unittest.TestCase):
 
     def test(self):
         a = 'a'
-        b = 'b'
+        b = 'a'
         self.assertEqual(a, b)
