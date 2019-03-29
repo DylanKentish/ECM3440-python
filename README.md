@@ -109,7 +109,7 @@ for s in my_generator(4):
 ## Programming styles and patterns
 
 Being familiar with the syntax of a programming language and the libraries of functions available is only a part of the skills needed to turn designs into
-working software.  There are various programming styles, or idioms, and patterns that enable programmers to recognise, and implement, common programming tasks.
+working software.  There are various programming styles, or idioms, and patterns that enable programmers to create high quality software.
 
 ### Pure functions and methods
 
