@@ -99,8 +99,7 @@ When designing your own classes it would be wise to make
 use of *type hints*.  
 
 Another feature of Python is
-*decorators*. It is important to note that unlike *type hints*, *decorators* do change the behaviour of programs. When a decorator is applied
-to a method or function it wraps the function in another function. For example we can add a static method to our class.
+*decorators*. It is important to note that unlike *type hints*, *decorators* do change the behaviour of methods.  For example we can add a static method to our class.
 
 ```python
 class Counter:
@@ -119,8 +118,7 @@ class Counter:
 
 Another important method *decorator* is `@property`. See <https://docs.python.org/3.5/library/functions.html#property>
 
-**Exercise** - write your own decorator which times the
-execution of functions or methods.
+
 
 <https://realpython.com/python-metaclasses/>
 
@@ -211,6 +209,19 @@ label = "a&b".replace("&","_").upper().rjust(8)
 
 This style of programming is called *functional programming*.
 
+## Callbacks
+
+In Python functions, and methods, are objects.  This means we can assign a function to a variable.
+
+
+## Wrappers and decorators
+
+When a decorator is applied
+to a method or function it wraps the function in another function.
+
+**Exercise** - write your own decorator which times the
+execution of functions or methods.
+
 ## Concurrency
 
 Programs that run continuously will generally need to accept new input, create output and perform some data transformation at the same time. This is called `concurrency` and can be achieved in numerous ways. This is a big subject with a lot of
@@ -251,13 +262,32 @@ This is an alternative style of concurrency that uses capabilities built into th
 
 ## APIs
 
-
+For detailed information see
+<https://docs.python.org/3/library/internet.html>
 
 ### `urllib`
 
+The `urllib` package provides functions and classes for accessing Internet resources
+using URLs.
 
 
 ### WSGI
+
+The Web Server Gateway Interface (WSGI) is a standard interface between web server software and web applications written in Python.
+
+```python
+@route('/')
+def home():
+    return '<h1>Homepage</h1>'
+
+@route('/hello/<name>')
+def hello(name):
+    return f'<b>Hello {name}</b>!'
+```
+
+Frameworks like `bottle` make it easy to process web *forms*, handle uploading and downloading of files, and other capabilities required of web sites.
+
+**Deployment** https://bottlepy.org/docs/dev/deployment.html
 
 
 Video: You Don't Need That! <https://www.youtube.com/watch?v=imW-trt0i9I> Christopher Neugebauer
