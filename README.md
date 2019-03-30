@@ -95,6 +95,10 @@ class Counter:
         self.count = 0
 ```
 
+When designing your own classes it would be wise to make
+use of *type hints*.  Another feature of Python is
+*decorators*.
+
 ```python
 class Counter:
     # Attributes
@@ -109,6 +113,8 @@ class Counter:
         print("hello")
         return
 ```
+
+Another important *decorator* is `@property`. See <https://docs.python.org/3.5/library/functions.html#property>
 
 <https://realpython.com/python-metaclasses/>
 
