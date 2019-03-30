@@ -144,6 +144,8 @@ for s in my_generator(4):
     print(s)
 ```
 
+<https://jeffknupp.com/blog/2013/04/07/improve-your-python-yield-and-generators-explained/>
+
 ### Miscellaneous new features
 
 From time to time new features are added to the Python
@@ -247,6 +249,11 @@ This is an alternative style of concurrency that uses capabilities built into th
 
 <https://docs.python.org/3/library/multiprocessing.html>
 
+
+### More patterns
+
+<https://github.com/faif/python-patterns>
+
 ## Building, testing and debugging
 
 <https://docs.travis-ci.com/user/languages/python/>
@@ -293,10 +300,6 @@ Frameworks like `bottle` make it easy to process web *forms*, handle uploading a
 Video: You Don't Need That! <https://www.youtube.com/watch?v=imW-trt0i9I> Christopher Neugebauer
 
 
-
-* <https://jeffknupp.com/blog/2013/04/07/improve-your-python-yield-and-generators-explained/>
-
-
 ## Unit testing
 
 Essential for TDD
@@ -315,6 +318,3 @@ Using ```pytest``` see,
 
 * <https://github.com/pallets/flask>
 
-## Design patterns
-
-* <https://github.com/faif/python-patterns>
