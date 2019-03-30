@@ -213,8 +213,19 @@ This style of programming is called *functional programming*.
 
 ## Callbacks
 
-In Python functions, and methods, are objects.  This means we can assign a function to a variable.
+In Python functions, and methods, are objects.  This means we can assign a function to a variable and then call the function later using the variable.
 
+```python
+def func1(arg):
+    print "calling func1 with arg " + str(arg)
+
+def func2(arg):
+    print "calling func2 with arg " + str(arg)
+
+callbacks_dict = { 'first': func1, 'second': func2 }
+callbacks_dict['first'](1)
+callbacks_dict['second'](2)
+```
 
 ## Wrappers and decorators
 
@@ -283,7 +294,9 @@ using URLs.
 The Web Server Gateway Interface (WSGI) is a standard interface between web server software and web applications written in Python. It's not something you need to know
 the details of as there are Python frameworks that will do the hard work for you.
 
-Frameworks like `bottle` and `flask` make it easy to process web *forms*, handle uploading and downloading of files, and other capabilities required of web sites.
+Frameworks like `bottle` and `flask` make it easy to process web *forms*, handle uploading and downloading of files, and other capabilities required of web sites. These frameworks
+use decorators to associate callbacks with URL patterns. To read and understand such
+programs it's necessary to be familiar with several programming idioms.
 
 `bottle` example
 
