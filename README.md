@@ -280,7 +280,10 @@ using URLs.
 
 ### WSGI
 
-The Web Server Gateway Interface (WSGI) is a standard interface between web server software and web applications written in Python.
+The Web Server Gateway Interface (WSGI) is a standard interface between web server software and web applications written in Python. It's not something you need to know
+the details of as there are Python frameworks that will do the hard work for you.
+
+Frameworks like `bottle` and `flask` make it easy to process web *forms*, handle uploading and downloading of files, and other capabilities required of web sites.
 
 `bottle` example
 
@@ -294,6 +297,8 @@ def home():
 @route('/hello/<name>')
 def hello(name):
     return f'<b>Hello {name}</b>!'
+
+run(host='localhost', port=8080)
 ```
 
 `flask` example
@@ -314,7 +319,7 @@ def hello(name):
 app.run(host='localhost', port=8080)
 ```
 
-Frameworks like `bottle` and `flask` make it easy to process web *forms*, handle uploading and downloading of files, and other capabilities required of web sites.
+
 
 **Deployment** https://bottlepy.org/docs/dev/deployment.html
 
