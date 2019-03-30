@@ -282,6 +282,8 @@ using URLs.
 
 The Web Server Gateway Interface (WSGI) is a standard interface between web server software and web applications written in Python.
 
+`bottle` example
+
 ```python
 @route('/')
 def home():
@@ -290,6 +292,12 @@ def home():
 @route('/hello/<name>')
 def hello(name):
     return f'<b>Hello {name}</b>!'
+```
+
+`flask` example
+
+```python
+
 ```
 
 Frameworks like `bottle` make it easy to process web *forms*, handle uploading and downloading of files, and other capabilities required of web sites.
@@ -334,3 +342,20 @@ Or maybe write an arcade style game <http://arcade.academy/>
 ### Web functions and serverless
 
 Google Appengine...
+
+<https://github.com/GoogleCloudPlatform/python-docs-samples/tree/master/appengine/standard/firebase/firenotes/>
+
+```sh
+cd python-docs-samples/appengine/standard/firebase/firenotes
+```
+
+Example uses `flask`.
+
+Mobile
+<https://cloud.google.com/solutions/mobile/mobile-app-backend-services>
+
+Java example <https://cloud.google.com/solutions/mobile/mobile-firebase-app-engine-flexible>
+
+Azure...
+<https://docs.microsoft.com/en-us/azure/azure-functions/functions-reference-python>
+<https://docs.microsoft.com/en-us/azure/azure-functions/functions-reference>
