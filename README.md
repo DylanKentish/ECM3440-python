@@ -96,8 +96,11 @@ class Counter:
 ```
 
 When designing your own classes it would be wise to make
-use of *type hints*.  Another feature of Python is
-*decorators*.
+use of *type hints*.  
+
+Another feature of Python is
+*decorators*. It is important to note that unlike *type hints*, *decorators* do change the behaviour of programs. When a decorator is applied
+to a method or function it wraps the function in another function. For example we can add a static method to our class.
 
 ```python
 class Counter:
@@ -114,7 +117,10 @@ class Counter:
         return
 ```
 
-Another important *decorator* is `@property`. See <https://docs.python.org/3.5/library/functions.html#property>
+Another important method *decorator* is `@property`. See <https://docs.python.org/3.5/library/functions.html#property>
+
+**Exercise** - write your own decorator which times the
+execution of functions or methods.
 
 <https://realpython.com/python-metaclasses/>
 
@@ -155,6 +161,9 @@ named variables can be included using a simple brace
 notation.
 
  <https://realpython.com/python-f-strings/>
+
+**Exercise** - write an f string that prints the current time
+using a 24 hour clock style, e.g. **08:30**.
 
 #### Data classes
 
@@ -240,12 +249,9 @@ This is an alternative style of concurrency that uses capabilities built into th
 * pip
 <https://pypi.org/project/pip/>
 
-
-### Unit testing
-
 ## APIs
 
-### Urllib
+### `urllib`
 
 ### WSGI
 
@@ -260,6 +266,8 @@ Video: You Don't Need That! <https://www.youtube.com/watch?v=imW-trt0i9I> Christ
 ## Unit testing
 
 Essential for TDD
+
+### `unittest`
 
 For examples of significant project that use ```unittest``` see,
 
