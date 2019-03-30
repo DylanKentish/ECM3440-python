@@ -318,3 +318,19 @@ Using ```pytest``` see,
 
 * <https://github.com/pallets/flask>
 
+
+## Where next?
+
+There' always more to learn.
+
+For data analysis see <https://pandas.pydata.org/>
+
+For multidimensional data see <http://www.numpy.org/>
+
+For machine learning <https://scikit-learn.org/stable/>
+
+Or maybe write an arcade style game <http://arcade.academy/>
+
+### Web functions and serverless
+
+Google Appengine...
