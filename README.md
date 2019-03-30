@@ -285,6 +285,8 @@ The Web Server Gateway Interface (WSGI) is a standard interface between web serv
 `bottle` example
 
 ```python
+from bottle import route, run
+
 @route('/')
 def home():
     return '<h1>Homepage</h1>'
@@ -297,10 +299,22 @@ def hello(name):
 `flask` example
 
 ```python
+from flask import Flask
 
+app = Flask(__name__)
+
+@app.route('/')
+def home():
+    return '<h1>Homepage</h1>'
+
+@app.route('/hello/<name>')
+def hello(name):
+    return f'<b>Hello {name}</b>!'
+
+app.run(host='localhost', port=8080)
 ```
 
-Frameworks like `bottle` make it easy to process web *forms*, handle uploading and downloading of files, and other capabilities required of web sites.
+Frameworks like `bottle` and `flask` make it easy to process web *forms*, handle uploading and downloading of files, and other capabilities required of web sites.
 
 **Deployment** https://bottlepy.org/docs/dev/deployment.html
 
