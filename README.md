@@ -223,6 +223,10 @@ This is an alternative style of concurrency that uses capabilities built into th
 
 ## Building, testing and debugging
 
+<https://docs.travis-ci.com/user/languages/python/>
+
+<https://jeffknupp.com/blog/2016/12/09/how-python-linters-will-save-your-large-python-project/>
+
 ### Modules and packages
 
 * ```__init__.py```
