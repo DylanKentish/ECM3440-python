@@ -288,6 +288,15 @@ For detailed information see
 The `urllib` package provides functions and classes for accessing Internet resources
 using URLs.
 
+This fragment of code shows how JSON data can be read from a URL.
+```python
+api_url="http://echo.jsontest.com/name/mike/age/unknown"
+
+with urllib.request.urlopen(api_url) as f:
+    data_text:str = f.read().decode('utf-8')
+    data = json.loads(data_text)
+```
+
 
 ### WSGI
 
