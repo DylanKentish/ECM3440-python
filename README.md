@@ -346,6 +346,10 @@ app.run(host='localhost', port=8080)
 <http://flask.pocoo.org/>
 
 
+
+
+
+
 **Deployment** https://bottlepy.org/docs/dev/deployment.html
 
 
@@ -383,11 +387,19 @@ For machine learning <https://scikit-learn.org/stable/>
 
 Or maybe write an arcade style game <http://arcade.academy/>
 
+<https://hackernoon.com/top-10-python-web-frameworks-to-learn-in-2018-b2ebab969d1a>
+
 ### Web functions and serverless
 
 Google Appengine...
 
+Use Flask with Google App Engine
+<https://cloud.google.com/appengine/docs/standard/python3/building-app/writing-web-service>
+
 <https://github.com/GoogleCloudPlatform/python-docs-samples/tree/master/appengine/standard/firebase/firenotes/>
+
+<https://cloud.google.com/appengine/docs/standard/python/samples>
+
 
 ```sh
 cd python-docs-samples/appengine/standard/firebase/firenotes
