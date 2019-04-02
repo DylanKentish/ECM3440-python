@@ -235,7 +235,7 @@ label = "a&b".replace("&","_").upper().rjust(8)
 
 This style of programming is called *functional programming*, and requires that functions are *pure*.
 
-## Callbacks
+### Callbacks
 
 In Python functions, and methods, are objects.  This means we can assign a function to a variable and then call the function later using the variable.
 
@@ -254,6 +254,11 @@ caller(func2)
 ```
 
 References to functions can be passed as arguments to other functions, assigned to variables, or added to lists.
+
+### More patterns
+
+<https://github.com/faif/python-patterns>
+
 
 ## Concurrency
 
@@ -285,9 +290,6 @@ This is an alternative style of concurrency that uses capabilities built into th
 
 <https://docs.python.org/3/library/multiprocessing.html>
 
-### More patterns
-
-<https://github.com/faif/python-patterns>
 
 ## Building, testing and debugging
 
