@@ -13,15 +13,18 @@ understand Python code written by others. This is because Python has many featur
 introductory courses, but are important when using web frameworks and other larger software
 environments.
 
-## Language features
+## More language features
+
+From your introductory Python classes you should be familiar with
+variables, built in types, statements, keywords, functions, modules and namespaces.  There are some more Python language features to master.
 
 ### Type hints and linting
 
-If you edit your Python scripts using an editor, or
+If you edit Python scripts using an editor, or
 IDE, that has Python editing features you will be aware that many programming errors,
 particularly syntax errors, can be spotted by editors. This form of program checking is called 'linting' because the first such static testing program was called 'lint' as it found the 'fluff' in your programs.  
 
-Like code reviews conducted by human reviewers there is no requirement that the program is complete or even that it is syntactically correct. 
+Like code reviews conducted by human reviewers there is no requirement that a program checked by a *linter* is complete, or even that it is syntactically correct.
 Static testing isn't limited to finding syntax errors, which you
 would find out about soon enough when they prevent your program from running. Linting can also
 find semantic errors such as unreachable lines of code.
@@ -39,7 +42,9 @@ else:
 ```
 
 This is perfectly valid Python but the result of the `input()` function is
-always a string, so this will not work as intended.
+always a string, so this will not work as intended. Howwever, if  we 
+add *type hints" to our program the linter can help us
+avoid this mistake.
 
 ```python
 num : int = input("type a number ")
@@ -56,6 +61,7 @@ By adding a *type hint*, in this case `: int`, we instruct the linter to check t
 ```none
 lint_fragment.py:1: error: Incompatible types in assignment (expression has type "str", variable has type "int")
 ```
+
 Note that this is a linting error, in this case the output of the `mypy` program, not a Python interpreter error. The program will still run, and its behaviour is still
 incorrect, but we now know there is an error to be fixed.
 
@@ -67,9 +73,17 @@ def my_func(my_arg:str, count:int=1) -> str:
 
 #### Static checking tools
 
+Although static checking through an IDE is the most frequently used approach, linters and other static checking tools can be run from
+the command line and also used as part of the software test, build,
+and release activities.
+
+Here are some tools for Python programmers.
+
 * <http://mypy-lang.org/>
 
 * <https://www.pylint.org/>
+
+* <http://flake8.pycqa.org/en/latest/>
 
 * <https://code.visualstudio.com/docs/python/linting>
 
@@ -131,6 +145,7 @@ for n in range(3,13,3):
     print(n)
 ```
 
+Although we might think of range() as returning a list, it actually produces a new value for each iteration of the `for` loop.  We call functions, or classes, like this *generators*.
 In Python We can write our own generators by using the `yield` keyword rather than  `return`, like this:
 
 ```python
@@ -144,6 +159,7 @@ for s in my_generator(4):
     print(s)
 ```
 
+Further reading on generators 
 <https://jeffknupp.com/blog/2013/04/07/improve-your-python-yield-and-generators-explained/>
 
 ### Miscellaneous new features
@@ -175,7 +191,7 @@ create a constructor method `__init__`, and also `__repr__` and `__eq__` methods
 
 ## Programming styles and patterns
 
-Being familiar with the syntax of a programming language and the libraries of functions available is only a part of the skills needed to turn designs into
+Being familiar with the syntax of a programming language and the libraries of functions and classes available is only a part of the skills needed to turn designs into
 working software.  There are various programming styles, or idioms, and patterns that enable programmers to create high quality software.
 
 ### Pure functions and methods
@@ -378,6 +394,8 @@ Using ```pytest``` see,
 ## Where next?
 
 There' always more to learn.
+
+
 
 For data analysis see <https://pandas.pydata.org/>
 
