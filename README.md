@@ -132,7 +132,11 @@ class Counter:
 
 Another important method *decorator* is `@property`. See <https://docs.python.org/3.5/library/functions.html#property>
 
+When a decorator is applied
+to a method or function it wraps the function in another function.
 
+**Exercise** - write your own decorator which times the
+execution of functions or methods.
 
 <https://realpython.com/python-metaclasses/>
 
@@ -196,8 +200,8 @@ working software.  There are various programming styles, or idioms, and patterns
 
 ### Pure functions and methods
 
-It is worth noting that the methods of built in Python *types* such as `str` and `dict` are *pure*, by which it is meant that they have no side effects. Those new to Python are
-sometimes caught out by this, especially the string methods such as `upper()`. For example:
+The methods of built in Python *types* such as `str` and `dict` are usually *pure*, by which we mean that they have no side effects. Those new to Python are
+sometimes caught out by this, especially when using the string methods such as `upper()`. For example:
 
 ```python
 name = "Bob"
@@ -205,12 +209,15 @@ name.upper()
 print(name)
 ```
 
-This prints `Bob`, whereas this:
+The above code prints `Bob`, whereas this:
 
 ```python
 print("Bob".upper())
 ```
-gives `BOB`.
+
+gives `BOB`.  Once we are familiar with Python we know how
+to use these string methods correctly but tend not to think
+about why they work this way.
 
 A corrected form of the first example is often given as:
 
@@ -219,13 +226,14 @@ name = "Bob"
 name = name.upper()
 print(name)
 ```
+
 This code recognizes that Python strings are *immutable*. The string methods such as `upper()` give new strings as return values.  One consequence of this is that we can write code such as this:
 
 ```python
 label = "a&b".replace("&","_").upper().rjust(8)
 ```
 
-This style of programming is called *functional programming*.
+This style of programming is called *functional programming*, and requires that functions are *pure*.
 
 ## Callbacks
 
@@ -233,38 +241,39 @@ In Python functions, and methods, are objects.  This means we can assign a funct
 
 ```python
 def func1(arg):
-    print "calling func1 with arg " + str(arg)
+    print "func1 with arg " + str(arg)
 
 def func2(arg):
-    print "calling func2 with arg " + str(arg)
+    print "func2 with arg " + str(arg)
 
-callbacks_dict = { 'first': func1, 'second': func2 }
-callbacks_dict['first'](1)
-callbacks_dict['second'](2)
+def caller(cb):
+    cb("hello")
+
+caller(func1)
+caller(func2)
 ```
 
-## Wrappers and decorators
-
-When a decorator is applied
-to a method or function it wraps the function in another function.
-
-**Exercise** - write your own decorator which times the
-execution of functions or methods.
+References to functions can be passed as arguments to other functions, assigned to variables, or added to lists.
 
 ## Concurrency
 
 Programs that run continuously will generally need to accept new input, create output and perform some data transformation at the same time. This is called `concurrency` and can be achieved in numerous ways. This is a big subject with a lot of
-theoretical and practical considerations.  For the purposes of designing and
-developing business applications it isn't necessary to consider parallel computation of the type that might be used in scientific programming or 3D graphics.
+theoretical and practical considerations.  
 
-### Coroutines
+### Coroutines and event loops
 
-An event loop runs in a thread (typically the main thread) and executes all callbacks and Tasks in its thread. While a Task is running in the event loop, no other Tasks can run in the same thread. When a Task executes an await expression, the running Task gets suspended, and the event loop executes the next Task.
+An event loop runs in a single thread (typically the main thread) and executes all callbacks and tasks in its thread. While a task is running in the event loop, no other tasks can run in the same thread. When a task executes an `await` expression, the running task gets suspended, and the event loop executes the next task. See
 <https://docs.python.org/3/library/asyncio-dev.html>
-
-<https://docs.python.org/3/library/asyncio-task.html>
+and
+<https://docs.python.org/3/library/asyncio-task.html>.
 
 ### Threads
+
+Another style of concurrency is threads. In Python threads are
+implemented within the interpreter and only one thread can
+execute Python code at a time. Note this doesn't mean only
+one function can be executing, as library calls often make calls
+to operating system libraries, e.g. for reading and writing files.
 
 <https://pymotw.com/2/threading/>
 
@@ -275,7 +284,6 @@ An event loop runs in a thread (typically the main thread) and executes all call
 This is an alternative style of concurrency that uses capabilities built into the operating system.  It is effectively equivalent to running two, or more, copies of the Python interpreter, all running the same Python program but at any given time running different functions or using different data.
 
 <https://docs.python.org/3/library/multiprocessing.html>
-
 
 ### More patterns
 
@@ -289,10 +297,33 @@ This is an alternative style of concurrency that uses capabilities built into th
 
 ### Modules and packages
 
-* ```__init__.py```
+A Python module is a Python script that
+provides functions, classes and variables that can be used by other
+scripts by *importing*.
+
+https://docs.python.org/3/tutorial/modules.html
+
+Python modules and the `import` statement ensure that items
+declared in modules are in distinct *namespaces* using *dot notation*.
+
+The use of modules and namespace can be taken further through
+the use of *packages*.  A Python package is a collection of
+Python modules. In practice this usually means a package is a
+directory (or folder) containing several `.py` files and perhaps other
+sub-directories.
+
+When creating a package  it is important to create a file called ```__init__.py``` in each directory so that Python knows the directory
+is a Python package. For more information on
+creating packages see https://docs.python.org/3/tutorial/modules.html#packages
+
+Packages are important for the distribution of
+reusable Python libraries.
 
 * pip
 <https://pypi.org/project/pip/>
+
+
+<https://packaging.python.org/tutorials/packaging-projects/>
 
 ## APIs
 
