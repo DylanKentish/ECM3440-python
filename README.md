@@ -24,10 +24,10 @@ If you edit Python scripts using an editor, or
 IDE, that has Python editing features you will be aware that many programming errors,
 particularly syntax errors, can be spotted by editors. This form of program checking is called 'linting' because the first such static testing program was called 'lint' as it found the 'fluff' in your programs.  
 
-Like code reviews conducted by human reviewers there is no requirement that a program checked by a *linter* is complete, or even that it is syntactically correct.
-Static testing isn't limited to finding syntax errors, which you
-would find out about soon enough when they prevent your program from running. Linting can also
-find semantic errors such as unreachable lines of code.
+Like code reviews conducted by human reviewers there is no requirement that a program checked by a linter is complete, or even that it is syntactically correct. Liniting is therefore particularly useful when editing.
+
+Static testing isn't limited to finding syntax errors, which you would find out about soon enough when they prevent your program from running. Linting can also find semantic errors such as unused variables and unreachable lines of code.
+
 
  As Python is a dynamically typed language, there is another sort of error that we encounter, the `TypeError`.  For example a common mistake is to write something like this:
 
@@ -43,10 +43,11 @@ else:
 
 This is perfectly valid Python but the result of the `input()` function is
 always a string, so this will not work as intended. Howwever, if  we 
-add *type hints" to our program the linter can help us
+add *type hints* to our program the linter can help us
 avoid this mistake.
 
 ```python
+# With type hint
 num : int = input("type a number ")
 if num == 1:
     # do something
