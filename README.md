@@ -207,19 +207,21 @@ working software.  There are various programming styles, or idioms, and patterns
 
 ### Pure functions and methods
 
-The methods of built in Python *types* such as `str` and `dict` are usually *pure*, by which we mean that they have no side effects. Those new to Python are
+The methods of built-in Python *types* such as `str` and `dict` are usually *pure*, by which we mean that they have no side effects. Those new to Python are
 sometimes caught out by this, especially when using the string methods such as `upper()`. For example:
 
 ```python
-name = "Bob"
-name.upper()
-print(name)
+>>> name='Bob'
+>>> name.upper() # Incorrect!
+>>> name
+'Bob'
 ```
 
 The above code prints `Bob`, whereas this:
 
 ```python
-print("Bob".upper())
+>>> 'Bob'.upper()
+'BOB'
 ```
 
 gives `BOB`.  Once we are familiar with Python we know how
@@ -229,9 +231,10 @@ about why they work this way.
 A corrected form of the first example is often given as:
 
 ```python
-name = "Bob"
-name = name.upper()
-print(name)
+>>> name='Bob'
+>>> name=name.upper()
+>>> name
+'BOB'
 ```
 
 This code recognizes that Python strings are *immutable*. The string methods such as `upper()` give new strings as return values.  One consequence of this is that we can write code such as this:
@@ -248,10 +251,10 @@ In Python functions, and methods, are objects.  This means we can assign a funct
 
 ```python
 def func1(arg):
-    print "func1 with arg " + str(arg)
+    print(f"func1 with arg {arg}")
 
 def func2(arg):
-    print "func2 with arg " + str(arg)
+    print(f"func2 with arg {arg}")
 
 def caller(cb):
     cb("hello")
