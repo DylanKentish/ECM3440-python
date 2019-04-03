@@ -256,22 +256,25 @@ def func1(arg):
 def func2(arg):
     print(f"func2 with arg {arg}")
 
-def caller(cb):
-    cb("hello")
+def caller(cb, msg):
+    cb(msg)
 
-caller(func1)
-caller(func2)
+caller(func1, "hello")
+caller(func2, "bye")
 ```
 
 References to functions can be passed as arguments to other functions, assigned to variables, or added to lists.
 
 ### More patterns
 
-<https://github.com/faif/python-patterns>
+When programming in any object oriented language it is important not just to make use of re-usable components, but also to learn and make use of common design patterns.
+
+See <https://github.com/faif/python-patterns>
 
 ## Multitasking and concurrency
 
 Programs that run continuously will generally need to accept new input, create output and perform some data transformation at the same time.
+
 When a computer system, or program, is performing two or more
 operations at the same time it is called multitasking.  This is a big subject with a lot of
 theoretical and practical considerations.
