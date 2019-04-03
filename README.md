@@ -151,7 +151,7 @@ for n in range(3,13,3):
 ```
 
 Although we might think of range() as returning a list, it actually produces a new value for each iteration of the `for` loop.  We call functions, or classes, like this *generators*.
-In Python We can write our own generators by using the `yield` keyword rather than  `return`, like this:
+In Python We can write our own generators by using the `yield` keyword rather than `return`, like this:
 
 ```python
 def my_generator(count):
