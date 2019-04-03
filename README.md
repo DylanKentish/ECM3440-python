@@ -7,16 +7,13 @@ knowledge to include language features used in web programming.
 
 ### Rationale
 
-If you've learned Python as an introduction to programming you might at times
-struggle to read and
-understand Python code written by others. This is because Python has many features that aren't taught in
-introductory courses, but are important when using web frameworks and other larger software
-environments.
+If you've learned Python as an introduction to programming you might at times be confused by code written by others, or examples for the many Python libraries and frameworks. Python has many features that aren't taught in introductory courses, but are important when using larger software environments.
 
 ## More language features
 
 From your introductory Python classes you should be familiar with
-variables, built in types, statements, keywords, functions, modules and namespaces.  There are some more Python language features to master.
+variables, built in types, statements, keywords, functions, modules and namespaces. I won't go back over those, instead I'll introduce some more Python language features that should help you create better
+programs.
 
 ### Type hints and linting
 
@@ -42,7 +39,7 @@ else:
 ```
 
 This is perfectly valid Python but the result of the `input()` function is
-always a string, so this will not work as intended. Howwever, if  we 
+always a string, so this will not work as intended. However, if  we
 add *type hints* to our program the linter can help us
 avoid this mistake.
 
