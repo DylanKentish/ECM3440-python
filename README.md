@@ -273,7 +273,7 @@ operations at the same time it is called multitasking.  This is a big subject wi
 theoretical and practical considerations.
 Multitasking
 can be achieved in several ways, but there are two distinct
-approaches to multitasking, *preemptive* and *non-preemptive*.
+approaches to multitasking, *preemptive* and *non-preemptive*. It is important to note that neither of these approaches require multiple CPUs or *cores*.
 
 ### Preemptive multitasking
 
@@ -329,11 +329,6 @@ This is an alternative style of concurrency that uses capabilities built into th
 <https://docs.python.org/3/library/multiprocessing.html>
 
 
-## Building, testing and debugging
-
-<https://docs.travis-ci.com/user/languages/python/>
-
-<https://jeffknupp.com/blog/2016/12/09/how-python-linters-will-save-your-large-python-project/>
 
 ### Modules and packages
 
@@ -460,6 +455,13 @@ For examples of significant project that use ```unittest``` see,
 Using ```pytest``` see,
 
 * <https://github.com/pallets/flask>
+
+
+## Building, testing and debugging
+
+<https://docs.travis-ci.com/user/languages/python/>
+
+<https://jeffknupp.com/blog/2016/12/09/how-python-linters-will-save-your-large-python-project/>
 
 
 ## Where next?
