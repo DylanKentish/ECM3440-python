@@ -298,26 +298,22 @@ for a message to be received, or waiting for a timer.
 
 ### Coroutines and event loops
 
-An event loop runs in a single thread (typically the main thread) and executes all callbacks and tasks in its thread. While a task is running in the event loop, no other tasks can run in the same thread. When a task executes an `await` expression, the running task gets suspended, and the event loop executes the next task. This is a non-preemptive style of multitasking.
+An event loop runs in a single thread, typically the main thread, and executes all callbacks and tasks in the one thread. These tasks are termed coroutines.
+
+While a coroutine is running in the event loop, no other coroutine can run. When the running coroutine executes an `await` expression it gets suspended, and the event loop executes the next waiting task. This is a non-preemptive style of multitasking.
 
 See
 <https://docs.python.org/3/library/asyncio-dev.html>
 and
 <https://docs.python.org/3/library/asyncio-task.html>.
 
-### Futures
-
-Futures are user defined objects
-that are waited for using `await`.  As its name
-suggests a *future* represents the result of an operation
-that has not yet returned a value.
-
-Note. In JavaScript *futures* are called *promises.
 
 ### Threads
 
-Another style of concurrency is threads. In Python threads are
-implemented within the interpreter and only one thread can
+Python provides two distinct models of preemptive multitasking, threads and *multiprocessing*.
+
+Python threads are
+implemented within the interpreter, and only one thread can
 execute Python code at a time. Note this doesn't mean only
 one function can be executing, as library calls often make calls
 to operating system libraries, e.g. for reading and writing files.
@@ -328,9 +324,20 @@ to operating system libraries, e.g. for reading and writing files.
 
 ### Multiprocessing
 
-This is an alternative style of concurrency that uses capabilities built into the operating system.  It is effectively equivalent to running two, or more, copies of the Python interpreter, all running the same Python program but at any given time running different functions or using different data.
+Multiprocessing is an alternative style of concurrency that uses capabilities built into the operating system.  It is effectively equivalent to running two, or more, copies of the Python interpreter, all running the same Python program but at any given time running different functions or using different data.
 
 <https://docs.python.org/3/library/multiprocessing.html>
+
+### Futures
+
+Futures are user defined objects
+that are waited for using `await`.  
+
+As the name
+suggests, a *future* represents the result of an operation
+that has not yet returned a value.
+
+Note. In JavaScript *futures* are called *promises.
 
 
 ## Modules and packages
@@ -341,10 +348,10 @@ A Python module is a Python script that
 provides functions, classes and variables that can be used by other
 scripts by *importing*.
 
-https://docs.python.org/3/tutorial/modules.html
-
 Python modules and the `import` statement ensure that items
 declared in modules are in distinct *namespaces* using *dot notation*.
+
+<https://docs.python.org/3/tutorial/modules.html>
 
 ### Packages
 
@@ -360,6 +367,8 @@ creating packages see https://docs.python.org/3/tutorial/modules.html#packages
 
 Packages are important for the distribution of
 reusable Python libraries.
+
+Pip is the package installer for Python.
 
 **pip** <https://pypi.org/project/pip/>
 
