@@ -371,6 +371,8 @@ creating packages see https://docs.python.org/3/tutorial/modules.html#packages
 Packages are important for the distribution of
 reusable Python libraries.
 
+Pip is the package installer for Python.
+
 **pip** <https://pypi.org/project/pip/>
 
 
