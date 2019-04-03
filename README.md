@@ -180,6 +180,12 @@ An *f string* is a Python string literal with the letter *f* before the opening 
 named variables can be included using a simple brace
 notation.
 
+```python
+today = "Monday"
+tomorrow = "Tuesday"
+print(f"1. Today is {today}, and tomorrow is {tomorrow}.")
+
+```
  <https://realpython.com/python-f-strings/>
 
 **Exercise** - write an f string that prints the current time
@@ -270,6 +276,15 @@ An event loop runs in a single thread (typically the main thread) and executes a
 <https://docs.python.org/3/library/asyncio-dev.html>
 and
 <https://docs.python.org/3/library/asyncio-task.html>.
+
+### Futures
+
+Futures are user defined objects
+that are waited for using `await`.  As its name
+suggests a *future* represents the result of an operation
+that has not yet returned a value.
+
+Note. In JavaScript *futures* are called *promises.
 
 ### Threads
 
