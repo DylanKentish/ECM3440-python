@@ -24,10 +24,10 @@ If you edit Python scripts using an editor, or
 IDE, that has Python editing features you will be aware that many programming errors,
 particularly syntax errors, can be spotted by editors. This form of program checking is called 'linting' because the first such static testing program was called 'lint' as it found the 'fluff' in your programs.  
 
-Like code reviews conducted by human reviewers there is no requirement that a program checked by a *linter* is complete, or even that it is syntactically correct.
-Static testing isn't limited to finding syntax errors, which you
-would find out about soon enough when they prevent your program from running. Linting can also
-find semantic errors such as unreachable lines of code.
+Like code reviews conducted by human reviewers there is no requirement that a program checked by a linter is complete, or even that it is syntactically correct. Liniting is therefore particularly useful when editing.
+
+Static testing isn't limited to finding syntax errors, which you would find out about soon enough when they prevent your program from running. Linting can also find semantic errors such as unused variables and unreachable lines of code.
+
 
  As Python is a dynamically typed language, there is another sort of error that we encounter, the `TypeError`.  For example a common mistake is to write something like this:
 
@@ -43,10 +43,11 @@ else:
 
 This is perfectly valid Python but the result of the `input()` function is
 always a string, so this will not work as intended. Howwever, if  we 
-add *type hints" to our program the linter can help us
+add *type hints* to our program the linter can help us
 avoid this mistake.
 
 ```python
+# With type hint
 num : int = input("type a number ")
 if num == 1:
     # do something
@@ -150,7 +151,7 @@ for n in range(3,13,3):
 ```
 
 Although we might think of range() as returning a list, it actually produces a new value for each iteration of the `for` loop.  We call functions, or classes, like this *generators*.
-In Python We can write our own generators by using the `yield` keyword rather than  `return`, like this:
+In Python We can write our own generators by using the `yield` keyword rather than `return`, like this:
 
 ```python
 def my_generator(count):
@@ -206,19 +207,21 @@ working software.  There are various programming styles, or idioms, and patterns
 
 ### Pure functions and methods
 
-The methods of built in Python *types* such as `str` and `dict` are usually *pure*, by which we mean that they have no side effects. Those new to Python are
+The methods of built-in Python *types* such as `str` and `dict` are usually *pure*, by which we mean that they have no side effects. Those new to Python are
 sometimes caught out by this, especially when using the string methods such as `upper()`. For example:
 
 ```python
-name = "Bob"
-name.upper()
-print(name)
+>>> name='Bob'
+>>> name.upper() # Incorrect!
+>>> name
+'Bob'
 ```
 
 The above code prints `Bob`, whereas this:
 
 ```python
-print("Bob".upper())
+>>> 'Bob'.upper()
+'BOB'
 ```
 
 gives `BOB`.  Once we are familiar with Python we know how
@@ -228,9 +231,10 @@ about why they work this way.
 A corrected form of the first example is often given as:
 
 ```python
-name = "Bob"
-name = name.upper()
-print(name)
+>>> name='Bob'
+>>> name=name.upper()
+>>> name
+'BOB'
 ```
 
 This code recognizes that Python strings are *immutable*. The string methods such as `upper()` give new strings as return values.  One consequence of this is that we can write code such as this:
@@ -247,10 +251,10 @@ In Python functions, and methods, are objects.  This means we can assign a funct
 
 ```python
 def func1(arg):
-    print "func1 with arg " + str(arg)
+    print(f"func1 with arg {arg}")
 
 def func2(arg):
-    print "func2 with arg " + str(arg)
+    print(f"func2 with arg {arg}")
 
 def caller(cb):
     cb("hello")
