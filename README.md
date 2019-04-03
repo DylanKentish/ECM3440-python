@@ -265,14 +265,38 @@ References to functions can be passed as arguments to other functions, assigned 
 
 <https://github.com/faif/python-patterns>
 
-## Concurrency
+## Multitasking and concurrency
 
-Programs that run continuously will generally need to accept new input, create output and perform some data transformation at the same time. This is called `concurrency` and can be achieved in several ways. This is a big subject with a lot of
-theoretical and practical considerations.  
+Programs that run continuously will generally need to accept new input, create output and perform some data transformation at the same time.
+When a computer system, or program, is performing two or more
+operations at the same time it is called multitasking.  This is a big subject with a lot of
+theoretical and practical considerations.
+Multitasking
+can be achieved in several ways, but there are two distinct
+approaches to multitasking, *preemptive* and *non-preemptive*.
+
+### Preemptive multitasking
+
+Preemptive multitasking is used by operating systems and some other
+larger sofware systems to allow multiple programs,or tasks,
+to run at the same time. Typically the programs running on such
+a system have little control over when they are suspended to allow
+other programs to run, although operating systems will usually
+have a means of setting the priority of processes.
+
+### Non-preemptive
+
+Non-preemptive multitasking, or cooperative multitasking, requires
+that the concurrent tasks periodically pause execution to allow
+another task to execute. This is done by waiting in an idle state,
+the wait could be for some external event, for example waiting
+for a message to be received, or waiting for a timer.
 
 ### Coroutines and event loops
 
-An event loop runs in a single thread (typically the main thread) and executes all callbacks and tasks in its thread. While a task is running in the event loop, no other tasks can run in the same thread. When a task executes an `await` expression, the running task gets suspended, and the event loop executes the next task. See
+An event loop runs in a single thread (typically the main thread) and executes all callbacks and tasks in its thread. While a task is running in the event loop, no other tasks can run in the same thread. When a task executes an `await` expression, the running task gets suspended, and the event loop executes the next task. This is a non-preemptive style of multitasking.
+
+See
 <https://docs.python.org/3/library/asyncio-dev.html>
 and
 <https://docs.python.org/3/library/asyncio-task.html>.
