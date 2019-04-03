@@ -280,7 +280,7 @@ operations at the same time it is called multitasking.  This is a big subject wi
 theoretical and practical considerations.
 Multitasking
 can be achieved in several ways, but there are two distinct
-approaches to multitasking, *preemptive* and *non-preemptive*.
+approaches to multitasking, *preemptive* and *non-preemptive*. It is important to note that neither of these approaches require multiple CPUs or *cores*.
 
 ### Preemptive multitasking
 
@@ -336,13 +336,9 @@ This is an alternative style of concurrency that uses capabilities built into th
 <https://docs.python.org/3/library/multiprocessing.html>
 
 
-## Building, testing and debugging
+## Modules and packages
 
-<https://docs.travis-ci.com/user/languages/python/>
-
-<https://jeffknupp.com/blog/2016/12/09/how-python-linters-will-save-your-large-python-project/>
-
-### Modules and packages
+### Modules
 
 A Python module is a Python script that
 provides functions, classes and variables that can be used by other
@@ -352,6 +348,8 @@ https://docs.python.org/3/tutorial/modules.html
 
 Python modules and the `import` statement ensure that items
 declared in modules are in distinct *namespaces* using *dot notation*.
+
+### Packages
 
 The use of modules and namespace can be taken further through
 the use of *packages*.  A Python package is a collection of
@@ -366,8 +364,7 @@ creating packages see https://docs.python.org/3/tutorial/modules.html#packages
 Packages are important for the distribution of
 reusable Python libraries.
 
-* pip
-<https://pypi.org/project/pip/>
+**pip** <https://pypi.org/project/pip/>
 
 
 <https://packaging.python.org/tutorials/packaging-projects/>
@@ -440,10 +437,6 @@ app.run(host='localhost', port=8080)
 <http://flask.pocoo.org/>
 
 
-
-
-
-
 **Deployment** https://bottlepy.org/docs/dev/deployment.html
 
 
@@ -467,6 +460,13 @@ For examples of significant project that use ```unittest``` see,
 Using ```pytest``` see,
 
 * <https://github.com/pallets/flask>
+
+
+## Building, testing and debugging
+
+<https://docs.travis-ci.com/user/languages/python/>
+
+<https://jeffknupp.com/blog/2016/12/09/how-python-linters-will-save-your-large-python-project/>
 
 
 ## Where next?
