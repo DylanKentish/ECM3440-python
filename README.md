@@ -375,7 +375,7 @@ Pip is the package installer for Python.
 
 <https://packaging.python.org/tutorials/packaging-projects/>
 
-## APIs
+## Python libraries for the WWW
 
 For detailed information see
 <https://docs.python.org/3/library/internet.html>
@@ -442,12 +442,7 @@ app.run(host='localhost', port=8080)
 
 <http://flask.pocoo.org/>
 
-
 **Deployment** https://bottlepy.org/docs/dev/deployment.html
-
-
-Video: You Don't Need That! <https://www.youtube.com/watch?v=imW-trt0i9I> Christopher Neugebauer
-
 
 ## Unit testing
 
