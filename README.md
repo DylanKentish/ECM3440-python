@@ -259,7 +259,6 @@ References to functions can be passed as arguments to other functions, assigned 
 
 <https://github.com/faif/python-patterns>
 
-
 ## Concurrency
 
 Programs that run continuously will generally need to accept new input, create output and perform some data transformation at the same time. This is called `concurrency` and can be achieved in numerous ways. This is a big subject with a lot of
