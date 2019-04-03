@@ -333,8 +333,9 @@ This is an alternative style of concurrency that uses capabilities built into th
 <https://docs.python.org/3/library/multiprocessing.html>
 
 
+## Modules and packages
 
-### Modules and packages
+### Modules
 
 A Python module is a Python script that
 provides functions, classes and variables that can be used by other
@@ -344,6 +345,8 @@ https://docs.python.org/3/tutorial/modules.html
 
 Python modules and the `import` statement ensure that items
 declared in modules are in distinct *namespaces* using *dot notation*.
+
+### Packages
 
 The use of modules and namespace can be taken further through
 the use of *packages*.  A Python package is a collection of
@@ -358,8 +361,7 @@ creating packages see https://docs.python.org/3/tutorial/modules.html#packages
 Packages are important for the distribution of
 reusable Python libraries.
 
-* pip
-<https://pypi.org/project/pip/>
+**pip** <https://pypi.org/project/pip/>
 
 
 <https://packaging.python.org/tutorials/packaging-projects/>
@@ -430,10 +432,6 @@ app.run(host='localhost', port=8080)
 ```
 
 <http://flask.pocoo.org/>
-
-
-
-
 
 
 **Deployment** https://bottlepy.org/docs/dev/deployment.html
