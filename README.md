@@ -285,7 +285,7 @@ approaches to multitasking, *preemptive* and *non-preemptive*. It is important t
 ### Preemptive multitasking
 
 Preemptive multitasking is used by operating systems and some other
-larger sofware systems to allow multiple programs,or tasks,
+larger software systems to allow multiple programs, or tasks,
 to run at the same time. Typically the programs running on such
 a system have little control over when they are suspended to allow
 other programs to run, although operating systems will usually
