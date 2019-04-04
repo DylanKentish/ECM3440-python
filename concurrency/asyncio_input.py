@@ -1,29 +1,43 @@
 import asyncio
 import sys
-#import selectors
-#import tty
 import threading
 
+
+class Screen:
+    def __init__(self,width:int, height:int):
+        self.width = width
+        self.height = height
+        self.clear()
+
+    def clear(self) -> None:
+        # Use list of lists of one character strings
+        # to form a mutable array of strings
+        self.data = [[' '] * self.width] * self.height
+
+    def __repr__(self) -> str:
+        out = ""
+        for row in self.data:
+            out += "".join(row) + "\n"
+        return out 
+
 in_count = 0
+scr = Screen(20,20)
 
 async def print_screen():
-    global in_count
+    global in_count, scr
     out_count = 0
     while True:
-        await asyncio.sleep(1)
-        scr = f""
-        for row in range(20):
-            scr += f"{row:02}\n"
-        print(scr, end="")
+        await asyncio.sleep(0.1)
+        print(scr)
         print(f"{in_count:04} {out_count:04}")
         out_count += 1
 
 async def update_game():
     global in_count
     while True:
-        await asyncio.sleep(0.1)
+        await asyncio.sleep(0.01)
         in_count += 1
-        #print("*",end="")
+
             
 
 async def main():
