@@ -26,22 +26,27 @@ class Screen:
         return out 
 
 class Snake:
-    def __init__(self, head, len):
+    def __init__(self, scr, head, len):
         self.data = [head]
+        self.scr = scr
         for i in range(len-1):
             xy = self.data[-1]
             xy = (xy[0],xy[1]+1)
             self.data.append(xy)
 
-    def draw(self, scr:Screen) -> None:
+    def draw(self) -> None:
         for xy in self.data:
-            scr.draw(xy,"#")
+            self.scr.draw(xy,"#")
         return
+
+    def add(self,head) -> None:
+        self.data.insert(0,head)
+        self.data.pop()
 
 
 in_count = 0
 scr = Screen(20,20)
-snk = Snake((3,1),3)
+snk = Snake(scr,(3,1),3)
 
 async def print_screen():
     global in_count, scr
@@ -50,7 +55,7 @@ async def print_screen():
         await asyncio.sleep(0.05)
         scr.clear()
         scr.draw((in_count%20,in_count%20),"*")
-        snk.draw(scr)
+        snk.draw()
         print(scr)
         print(f"{in_count:04} {out_count:04}")
         out_count += 1
