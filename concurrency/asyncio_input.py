@@ -30,6 +30,7 @@ class Screen:
 
 class Snake:
     scr : Screen
+    direction : int = 0 # up,right,down,left
     def __init__(self, scr, head, len):
         self.data = [head]
         self.scr = scr
@@ -46,6 +47,16 @@ class Snake:
     def add(self,head) -> None:
         self.data.insert(0,self.scr.wrap_xy(head))
         self.data.pop()
+
+    def move(self,dir=0) -> None:
+        ''' dir=1 (clockwise)
+        or dir=-1 (counterclockwise) '''
+        self.direction = (self.direction + dir)%4
+        ## add new segment.
+        return
+    
+    def grow(self) -> None:
+        return
 
 
 in_count = 0
