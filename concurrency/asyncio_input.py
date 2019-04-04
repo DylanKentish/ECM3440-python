@@ -1,24 +1,35 @@
 import asyncio
 import sys
 import selectors
+import tty
 
 sel = selectors.DefaultSelector()
 sel.register(sys.stdin, selectors.EVENT_READ)
 
+
+# This is messy, need another thread here.
 async def get_input(msg):
+    while True:
+        await asyncio.sleep(0)
+        print(" \b",end="")
+        events = sel.select(0)
+        if events:        
+            ch = sys.stdin.read(1)[0]
+            print(msg, ch)
+
+async def print_message(msg):
     print(msg + "   ",end="")
-    await asyncio.sleep(0.1)
     while True:
         for ch in "|/-\\":
+            await asyncio.sleep(0.2)
             print(f"\b\b{ch} ",end="")
-        events = sel.select(0)
-        if events:
             
-            line = sys.stdin.readline()
-            print(msg, line)
-            break
 
+async def main():
+    tty.setcbreak(sys.stdin)
+    task1 = asyncio.create_task(print_message('hello'))
+    task2 = asyncio.create_task(get_input('hello'))
+    await task1
+    await task2
 
-loop = asyncio.get_event_loop()
-loop.run_until_complete(get_input('Type your name'))
-loop.close()
+asyncio.run(main())
