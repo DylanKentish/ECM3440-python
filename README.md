@@ -375,7 +375,7 @@ Pip is the package installer for Python.
 
 <https://packaging.python.org/tutorials/packaging-projects/>
 
-## APIs
+## Python libraries for the WWW
 
 For detailed information see
 <https://docs.python.org/3/library/internet.html>
@@ -398,7 +398,7 @@ with urllib.request.urlopen(api_url) as f:
 ### WSGI
 
 The Web Server Gateway Interface (WSGI) is a standard interface between web server software and web applications written in Python. It's not something you need to know
-the details of as there are Python frameworks that will do the hard work for you.
+the details of, as there are Python frameworks that will do the hard work for you.
 
 Frameworks like `bottle` and `flask` make it easy to process web *forms*, handle uploading and downloading of files, and other capabilities required of web sites. These frameworks
 use decorators to associate callbacks with URL patterns. To read and understand such
@@ -442,12 +442,7 @@ app.run(host='localhost', port=8080)
 
 <http://flask.pocoo.org/>
 
-
 **Deployment** https://bottlepy.org/docs/dev/deployment.html
-
-
-Video: You Don't Need That! <https://www.youtube.com/watch?v=imW-trt0i9I> Christopher Neugebauer
-
 
 ## Unit testing
 
