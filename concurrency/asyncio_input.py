@@ -1,35 +1,47 @@
 import asyncio
 import sys
-import selectors
-import tty
+#import selectors
+#import tty
+import threading
 
-sel = selectors.DefaultSelector()
-sel.register(sys.stdin, selectors.EVENT_READ)
+in_count = 0
 
-
-# This is messy, need another thread here.
-async def get_input(msg):
+async def print_screen():
+    global in_count
+    out_count = 0
     while True:
-        await asyncio.sleep(0)
-        print(" \b",end="")
-        events = sel.select(0)
-        if events:        
-            ch = sys.stdin.read(1)[0]
-            print(msg, ch)
+        await asyncio.sleep(1)
+        scr = f""
+        for row in range(20):
+            scr += f"{row:02}\n"
+        print(scr, end="")
+        print(f"{in_count:04} {out_count:04}")
+        out_count += 1
 
-async def print_message(msg):
-    print(msg + "   ",end="")
+async def update_game():
+    global in_count
     while True:
-        for ch in "|/-\\":
-            await asyncio.sleep(0.2)
-            print(f"\b\b{ch} ",end="")
+        await asyncio.sleep(0.1)
+        in_count += 1
+        #print("*",end="")
             
 
 async def main():
-    tty.setcbreak(sys.stdin)
-    task1 = asyncio.create_task(print_message('hello'))
-    task2 = asyncio.create_task(get_input('hello'))
+    task1 = asyncio.create_task(print_screen())
+    task2 = asyncio.create_task(update_game())
     await task1
     await task2
 
+class inputThread (threading.Thread):
+    def run(self):
+        while True:
+            a = input()
+            print(f"you typed: {a}")
+            if a == "q":
+                break
+
+thread1 = inputThread()
+thread1.start()
 asyncio.run(main())
+print("loop done")
+thread1.join()
