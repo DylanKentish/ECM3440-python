@@ -19,6 +19,9 @@ class Screen:
         self.data[xy[1]][xy[0]] = c[0]
         return
 
+    def wrap_xy(self, xy:tuple) -> tuple:
+        return (xy[0] % self.width, xy[1] % self.height) 
+
     def __repr__(self) -> str:
         out = ""
         for row in self.data:
@@ -26,6 +29,7 @@ class Screen:
         return out 
 
 class Snake:
+    scr : Screen
     def __init__(self, scr, head, len):
         self.data = [head]
         self.scr = scr
@@ -40,13 +44,13 @@ class Snake:
         return
 
     def add(self,head) -> None:
-        self.data.insert(0,head)
+        self.data.insert(0,self.scr.wrap_xy(head))
         self.data.pop()
 
 
 in_count = 0
 scr = Screen(20,20)
-snk = Snake(scr,(3,1),3)
+snk = Snake(scr,(3,1),4)
 
 async def print_screen():
     global in_count, scr
@@ -55,6 +59,7 @@ async def print_screen():
         await asyncio.sleep(0.05)
         scr.clear()
         scr.draw((in_count%20,in_count%20),"*")
+        snk.add((out_count,5))
         snk.draw()
         print(scr)
         print(f"{in_count:04} {out_count:04}")
