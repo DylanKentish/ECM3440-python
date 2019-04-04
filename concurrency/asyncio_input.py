@@ -53,6 +53,16 @@ class Snake:
         or dir=-1 (counterclockwise) '''
         self.direction = (self.direction + dir)%4
         ## add new segment.
+        head = self.data[0]
+        if self.direction == 0:
+            head = (head[0],head[1]-1)
+        elif self.direction == 1:
+            head = (head[0]+1,head[1])
+        elif self.direction == 2:
+            head = (head[0],head[1]+1)
+        else:
+            head = (head[0]-1,head[1])
+        self.add(head)
         return
     
     def grow(self) -> None:
@@ -70,7 +80,6 @@ async def print_screen():
         await asyncio.sleep(0.05)
         scr.clear()
         scr.draw((in_count%20,in_count%20),"*")
-        snk.add((out_count,5))
         snk.draw()
         print(scr)
         print(f"{in_count:04} {out_count:04}")
@@ -80,6 +89,7 @@ async def update_game():
     global in_count
     while True:
         await asyncio.sleep(0.2)
+        snk.move()
         in_count += 1
 
             
