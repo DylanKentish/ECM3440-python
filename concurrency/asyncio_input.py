@@ -3,7 +3,7 @@ import sys
 import threading
 
 class Screen:
-    def __init__(self,width:int, height:int):
+    def __init__(self, width:int, height:int):
         self.width = width
         self.height = height
         self.clear()
@@ -15,9 +15,8 @@ class Screen:
         for y in range(self.height):
             self.data.append([' '] * self.width)
 
-    def draw(self,x:int, y:int, c:str) -> None:
-        row = self.data[y]
-        row[x] = c[0]
+    def draw(self, xy:tuple, c:str) -> None:
+        self.data[xy[1]][xy[0]] = c[0]
         return
 
     def __repr__(self) -> str:
@@ -26,8 +25,23 @@ class Screen:
             out += "".join(row) + "\n"
         return out 
 
+class Snake:
+    def __init__(self, head, len):
+        self.data = [head]
+        for i in range(len-1):
+            xy = self.data[-1]
+            xy = (xy[0],xy[1]+1)
+            self.data.append(xy)
+
+    def draw(self, scr:Screen) -> None:
+        for xy in self.data:
+            scr.draw(xy,"#")
+        return
+
+
 in_count = 0
 scr = Screen(20,20)
+snk = Snake((3,1),3)
 
 async def print_screen():
     global in_count, scr
@@ -35,7 +49,8 @@ async def print_screen():
     while True:
         await asyncio.sleep(0.05)
         scr.clear()
-        scr.draw(in_count%20,in_count%20,"*")
+        scr.draw((in_count%20,in_count%20),"*")
+        snk.draw(scr)
         print(scr)
         print(f"{in_count:04} {out_count:04}")
         out_count += 1
