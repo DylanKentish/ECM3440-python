@@ -88,7 +88,7 @@ async def print_screen():
 async def update_game():
     global in_count, rotate
     while True:
-        await asyncio.sleep(0.2)
+        await asyncio.sleep(0.1)
         snk.move(rotate)
         rotate = 0
         in_count += 1      
