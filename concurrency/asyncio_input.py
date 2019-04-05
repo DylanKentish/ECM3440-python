@@ -68,10 +68,10 @@ class Snake:
     def grow(self) -> None:
         return
 
-
 in_count = 0
-scr = Screen(20,20)
+scr = Screen(60,20)
 snk = Snake(scr,(3,1),4)
+rotate = 0
 
 async def print_screen():
     global in_count, scr
@@ -86,13 +86,12 @@ async def print_screen():
         out_count += 1
 
 async def update_game():
-    global in_count
+    global in_count, rotate
     while True:
         await asyncio.sleep(0.2)
-        snk.move()
-        in_count += 1
-
-            
+        snk.move(rotate)
+        rotate = 0
+        in_count += 1      
 
 async def main():
     task1 = asyncio.create_task(print_screen())
@@ -102,11 +101,16 @@ async def main():
 
 class inputThread (threading.Thread):
     def run(self):
+        global rotate
         while True:
             a = input()
             print(f"you typed: {a}")
             if a == "q":
                 break
+            elif a == "b":
+                rotate = -1
+            elif a == "n":
+                rotate = 1
 
 thread1 = inputThread()
 thread1.start()
