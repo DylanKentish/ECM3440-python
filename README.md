@@ -130,6 +130,8 @@ class Counter:
 
 Another important method *decorator* is `@property`. See <https://docs.python.org/3.5/library/functions.html#property>
 
+You might also encounter `@classmethod`. See <https://docs.python.org/3/library/functions.html#classmethod>
+
 When a decorator is applied
 to a method or function it wraps the function in another function.
 
