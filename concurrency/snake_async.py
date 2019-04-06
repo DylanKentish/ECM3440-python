@@ -1,3 +1,6 @@
+# snake_async.py
+# Snake game using threads and coroutines.
+#
 import asyncio
 import sys
 import threading
@@ -79,7 +82,6 @@ async def print_screen():
     while True:
         await asyncio.sleep(0.05)
         scr.clear()
-        scr.draw((in_count%20,in_count%20),"*")
         snk.draw()
         print(scr)
         print(f"{in_count:04} {out_count:04}")
