@@ -163,6 +163,9 @@ for s in my_generator(4):
     print(s)
 ```
 
+**Exercise** - rewrite my_generator() without using
+`yield`. Hint use a *list* and the `append()` method.
+
 Further reading on generators 
 <https://jeffknupp.com/blog/2013/04/07/improve-your-python-yield-and-generators-explained/>
 
@@ -172,7 +175,7 @@ From time to time new features are added to the Python
 language.  These new features rarely make earlier
 features obsolete, as this would break many existing
 programs. Instead new features typically provide
-and easier or tidier way of doing common things.
+an easier, or tidier, way of doing common things.
 
 #### F strings
 
@@ -198,6 +201,9 @@ create a constructor method `__init__`, and also `__repr__` and `__eq__` methods
 
 <https://realpython.com/python-data-classes/>
 
+**Exercise** - write a data class, then add your
+own `__repr__` to return a string using
+only upper case letters.
 
 ## Programming styles and patterns
 
