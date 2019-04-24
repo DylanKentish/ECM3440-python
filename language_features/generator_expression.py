@@ -1,10 +1,10 @@
-# Generator comprehensions can be returned  by functions. i.e. the comprehension 
-# is returned, not the result of the comprehension.
-def my_generator(x):
-    return ("n is " + str(n) for n in range(x))
+# Generator expressions can be returned by functions. i.e. the generator
+# is returned, not the result of the generator.
+def my_generator(count):
+    return("n is " + str(n) for n in range(count))
 
 # Create an instance of the generator.
-gen = my_generator(5)
+gen = my_generator(4)
 
 # When using a generator in a while loop use next() to yield the next element.
 print("with next " + next(gen))

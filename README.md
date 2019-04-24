@@ -404,7 +404,6 @@ with urllib.request.urlopen(api_url) as f:
     data = json.loads(data_text)
 ```
 
-
 ### WSGI
 
 The Web Server Gateway Interface (WSGI) is a standard interface between web server software and web applications written in Python. It's not something you need to know
@@ -483,7 +482,6 @@ Using ```pytest``` see,
 ## Where next?
 
 There' always more to learn.
-
 
 
 For data analysis see <https://pandas.pydata.org/>
