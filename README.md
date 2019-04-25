@@ -350,6 +350,21 @@ that has not yet returned a value.
 Note. In JavaScript *futures* are called *promises.
 
 
+**Exercise** Read <https://docs.microsoft.com/en-us/azure/azure-functions/functions-reference-python>
+
+Explain what is meant by the following terms used in that document.
+
+* global method
+
+* non-blocking
+
+* asynchronous coroutine
+
+* relative import syntax
+
+[GitHub repo <https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/azure-functions/functions-reference-python.md>]
+
+
 ## Modules and packages
 
 ### Modules
@@ -452,6 +467,9 @@ app.run(host='localhost', port=8080)
 <http://flask.pocoo.org/>
 
 **Deployment** https://bottlepy.org/docs/dev/deployment.html
+
+
+
 
 ## Unit testing
 
