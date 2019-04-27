@@ -469,6 +469,26 @@ app.run(host='localhost', port=8080)
 **Deployment** https://bottlepy.org/docs/dev/deployment.html
 
 
+### logging
+
+Logging libraries are almost universally used in server applications but can also make for better diagnostics of client applications too.
+
+```python
+import logging
+logger = logging.getLogger()
+logging.basicConfig(level=logging.DEBUG)
+## Levels are DEBUG, INFO, WARN, ERROR, CRITICAL
+
+logger.debug()
+logger.info()
+logger.warn()
+logger.error()
+### Python also has
+logger.critial()
+### and for use in except blocks. Logs level is ERROR
+logger.exception()
+```
+
 
 
 ## Unit testing
