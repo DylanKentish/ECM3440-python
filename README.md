@@ -489,7 +489,34 @@ logger.critial()
 logger.exception()
 ```
 
+The Apache documentation provide some examples of the different logging levels.
+<https://httpd.apache.org/docs/2.4/mod/core.html#loglevel>
 
+* critical "socket: Failed to get a socket, exiting child"
+* error "Premature end of script headers"
+* warn "child process 1234 did not exit, sending another SIGHUP"
+* notice "httpd: caught SIGBUS, attempting to dump core in ..."
+* info "Server seems busy, (you may need to increase StartServers, or Min/MaxSpareServers)..."
+* debug "Opening config file ..."
+
+Note that Python logging does not have a "notice" level, which the Apache
+documentation describes as "Normal but significant condition".
+
+It is worth noting that Internet protocols use status codes with implied severity that will often relate to a logging level.  For example HTTP uses response codes where the initial digit corresponds various classes of success or failure in exchanging messages. <https://developer.mozilla.org/en-US/docs/Web/HTTP/Status>
+
+* 1XX information
+* 2XX success
+* 3XX redirect
+* 4XX client error (including 418, I'm a teapot)
+* 5XX server error
+
+FTP has similar status codes. Here are some examples.
+
+* 125 Data connection already open; transfer starting
+* 250 Requested file action okay, completed
+* 332 Need account for login
+* 430 Invalid username or password
+* 534 Could Not Connect to Server - Policy Requires SSL
 
 ## Unit testing
 
