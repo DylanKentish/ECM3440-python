@@ -536,6 +536,10 @@ Using ```pytest``` see,
 
 * <https://github.com/pallets/flask>
 
+### Mocks
+
+<https://realpython.com/testing-third-party-apis-with-mocks/>
+
 
 ## Building, testing and debugging
 
