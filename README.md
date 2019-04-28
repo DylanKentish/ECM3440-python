@@ -540,6 +540,11 @@ Using ```pytest``` see,
 
 <https://realpython.com/testing-third-party-apis-with-mocks/>
 
+Mocking Azure functions in Python <https://github.com/Azure/azure-functions-python-worker/wiki/Unit-Testing-Guide>
+
+More on Azure function mocks <https://docs.microsoft.com/en-us/azure/azure-functions/durable/durable-functions-unit-testing>
+
+<https://azure.microsoft.com/en-gb/blog/azure-functions-gets-better-for-python-and-javascript-developers/>
 
 ## Building, testing and debugging
 
