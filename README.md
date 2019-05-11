@@ -3,16 +3,19 @@
 ## Advanced Python examples and exercises
 
 These examples assume a reasonable knowledge of Python, and are intended to extend your
-knowledge to include language features used in web programming.
+knowledge to include language features used in web programming. 
+
+**Please note that several of the features described here are only available in
+recent versions of Python 3, and may not apply to Python 2.7.**
 
 ### Rationale
 
-If you've learned Python as an introduction to programming you might at times be confused by code written by others, or examples for the many Python libraries and frameworks. Python has many features that aren't taught in introductory courses, but are important when using larger software environments.
+If you've learned Python as an introduction to programming you might at times be confused by code examples for the many Python libraries and frameworks. Python has many features that aren't taught in introductory courses, but are important when using larger software environments.
 
 ## More language features
 
 From your introductory Python classes you should be familiar with
-variables, built in types, statements, keywords, functions, modules and namespaces. I won't go back over those, instead I'll introduce some more Python language features that should help you create better
+variables, built in types, statements, keywords, functions, modules and namespaces. I won't go back over those, instead I'll introduce other Python language features that should help you learn to create better
 programs.
 
 ### Type hints and linting
@@ -21,12 +24,11 @@ If you edit Python scripts using an editor, or
 IDE, that has Python editing features you will be aware that many programming errors,
 particularly syntax errors, can be spotted by editors. This form of program checking is called 'linting' because the first such static testing program was called 'lint' as it found the 'fluff' in your programs.  
 
-Like code reviews conducted by human reviewers there is no requirement that a program checked by a linter is complete, or even that it is syntactically correct. Liniting is therefore particularly useful when editing.
+Like code reviews conducted by human reviewers there is no requirement that a program checked by a linter is complete, or even that it is syntactically correct. Linting is therefore particularly useful when editing.
 
 Static testing isn't limited to finding syntax errors, which you would find out about soon enough when they prevent your program from running. Linting can also find semantic errors such as unused variables and unreachable lines of code.
 
-
- As Python is a dynamically typed language, there is another sort of error that we encounter, the `TypeError`.  For example a common mistake is to write something like this:
+As Python is a dynamically typed language, there is another sort of error that we encounter, the `TypeError`.  For example a common mistake is to write something like this:
 
 ```python
 num = input("type a number ")
@@ -111,7 +113,7 @@ When designing your own classes it would be wise to make
 use of *type hints*.  
 
 Another feature of Python is
-*decorators*. It is important to note that unlike *type hints*, *decorators* do change the behaviour of methods.  For example we can add a static method to our class.
+*decorators*. It is important to note that unlike *type hints*, *decorators* do change the behaviour of methods.  For example, we can add a static method to our class.
 
 ```python
 class Counter:
@@ -135,9 +137,8 @@ You might also encounter `@classmethod`. See <https://docs.python.org/3/library/
 When a decorator is applied
 to a method or function it wraps the function in another function.
 
-**Exercise** - write a decorator which times the execution of functions or methods.
-
-<https://realpython.com/python-metaclasses/>
+**Exercise** - write your own decorator which times the
+execution of functions or methods.
 
 ### Generators and yield
 
@@ -162,10 +163,10 @@ for s in my_generator(4):
     print(s)
 ```
 
+**Exercise** - rewrite my_generator() without using
+`yield`. Hint use a *list* and the `append()` method.
+
 **Exercise** - rewrite my_generator() using a *generator expression*.
-
-**Exercise** - rewrite my_generator() to return a *list* rather than using `yield`.
-
 
 Further reading on generators 
 <https://jeffknupp.com/blog/2013/04/07/improve-your-python-yield-and-generators-explained/>
@@ -208,7 +209,7 @@ only upper case letters.
 
 ## Programming styles and patterns
 
-Being familiar with the syntax of a programming language and the libraries of functions and classes available is only a part of the skills needed to turn designs into
+Being familiar with the syntax of a programming language, and the libraries of functions and classes available is only a part of the skills needed to turn designs into
 working software.  There are various programming styles, or idioms, and patterns that enable programmers to create high quality software.
 
 ### Pure functions and methods
@@ -316,6 +317,7 @@ See
 and
 <https://docs.python.org/3/library/asyncio-task.html>.
 
+
 ### Threads
 
 Python provides two distinct models of preemptive multitasking, threads and *multiprocessing*.
@@ -346,6 +348,22 @@ suggests, a *future* represents the result of an operation
 that has not yet returned a value.
 
 Note. In JavaScript *futures* are called *promises.
+
+
+**Exercise** Read <https://docs.microsoft.com/en-us/azure/azure-functions/functions-reference-python>
+
+Explain what is meant by the following terms used in that document.
+
+* global method
+
+* non-blocking
+
+* asynchronous coroutine
+
+* relative import syntax
+
+[GitHub repo <https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/azure-functions/functions-reference-python.md>]
+
 
 ## Modules and packages
 
@@ -450,6 +468,56 @@ app.run(host='localhost', port=8080)
 
 **Deployment** https://bottlepy.org/docs/dev/deployment.html
 
+
+### logging
+
+Logging libraries are almost universally used in server applications but can also make for better diagnostics of client applications too.
+
+```python
+import logging
+logger = logging.getLogger()
+logging.basicConfig(level=logging.DEBUG)
+## Levels are DEBUG, INFO, WARN, ERROR, CRITICAL
+
+logger.debug()
+logger.info()
+logger.warn()
+logger.error()
+### Python also has
+logger.critial()
+### and for use in except blocks. Logs level is ERROR
+logger.exception()
+```
+
+The Apache documentation provide some examples of the different logging levels.
+<https://httpd.apache.org/docs/2.4/mod/core.html#loglevel>
+
+* critical "socket: Failed to get a socket, exiting child"
+* error "Premature end of script headers"
+* warn "child process 1234 did not exit, sending another SIGHUP"
+* notice "httpd: caught SIGBUS, attempting to dump core in ..."
+* info "Server seems busy, (you may need to increase StartServers, or Min/MaxSpareServers)..."
+* debug "Opening config file ..."
+
+Note that Python logging does not have a "notice" level, which the Apache
+documentation describes as "Normal but significant condition".
+
+It is worth noting that Internet protocols use status codes with implied severity that will often relate to a logging level.  For example HTTP uses response codes where the initial digit corresponds various classes of success or failure in exchanging messages. <https://developer.mozilla.org/en-US/docs/Web/HTTP/Status>
+
+* 1XX information
+* 2XX success
+* 3XX redirect
+* 4XX client error (including 418, I'm a teapot)
+* 5XX server error
+
+FTP has similar status codes. Here are some examples.
+
+* 125 Data connection already open; transfer starting
+* 250 Requested file action okay, completed
+* 332 Need account for login
+* 430 Invalid username or password
+* 534 Could Not Connect to Server - Policy Requires SSL
+
 ## Unit testing
 
 Essential for TDD
@@ -468,6 +536,15 @@ Using ```pytest``` see,
 
 * <https://github.com/pallets/flask>
 
+### Mocks
+
+<https://realpython.com/testing-third-party-apis-with-mocks/>
+
+Mocking Azure functions in Python <https://github.com/Azure/azure-functions-python-worker/wiki/Unit-Testing-Guide>
+
+More on Azure function mocks <https://docs.microsoft.com/en-us/azure/azure-functions/durable/durable-functions-unit-testing>
+
+<https://azure.microsoft.com/en-gb/blog/azure-functions-gets-better-for-python-and-javascript-developers/>
 
 ## Building, testing and debugging
 
@@ -475,13 +552,11 @@ Using ```pytest``` see,
 
 <https://jeffknupp.com/blog/2016/12/09/how-python-linters-will-save-your-large-python-project/>
 
-### Using pdb
 
-   <https://medium.freecodecamp.org/how-i-use-python-debugger-to-fix-code-ca8492423148>
-
-## Next steps
+## Where next?
 
 There' always more to learn.
+
 
 For data analysis see <https://pandas.pydata.org/>
 
@@ -503,6 +578,7 @@ Use Flask with Google App Engine
 <https://github.com/GoogleCloudPlatform/python-docs-samples/tree/master/appengine/standard/firebase/firenotes/>
 
 <https://cloud.google.com/appengine/docs/standard/python/samples>
+
 
 ```sh
 cd python-docs-samples/appengine/standard/firebase/firenotes
