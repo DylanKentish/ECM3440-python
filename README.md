@@ -3,16 +3,19 @@
 ## Advanced Python examples and exercises
 
 These examples assume a reasonable knowledge of Python, and are intended to extend your
-knowledge to include language features used in web programming.
+knowledge to include language features used in web programming. 
+
+**Please note that several of the features described here are only available in
+recent versions of Python 3, and may not apply to Python 2.7.**
 
 ### Rationale
 
-If you've learned Python as an introduction to programming you might at times be confused by code written by others, or examples for the many Python libraries and frameworks. Python has many features that aren't taught in introductory courses, but are important when using larger software environments.
+If you've learned Python as an introduction to programming you might at times be confused by code examples for the many Python libraries and frameworks. Python has many features that aren't taught in introductory courses, but are important when using larger software environments.
 
 ## More language features
 
 From your introductory Python classes you should be familiar with
-variables, built in types, statements, keywords, functions, modules and namespaces. I won't go back over those, instead I'll introduce some more Python language features that should help you create better
+variables, built in types, statements, keywords, functions, modules and namespaces. I won't go back over those, instead I'll introduce other Python language features that should help you learn to create better
 programs.
 
 ### Type hints and linting
@@ -21,12 +24,11 @@ If you edit Python scripts using an editor, or
 IDE, that has Python editing features you will be aware that many programming errors,
 particularly syntax errors, can be spotted by editors. This form of program checking is called 'linting' because the first such static testing program was called 'lint' as it found the 'fluff' in your programs.  
 
-Like code reviews conducted by human reviewers there is no requirement that a program checked by a linter is complete, or even that it is syntactically correct. Liniting is therefore particularly useful when editing.
+Like code reviews conducted by human reviewers there is no requirement that a program checked by a linter is complete, or even that it is syntactically correct. Linting is therefore particularly useful when editing.
 
 Static testing isn't limited to finding syntax errors, which you would find out about soon enough when they prevent your program from running. Linting can also find semantic errors such as unused variables and unreachable lines of code.
 
-
- As Python is a dynamically typed language, there is another sort of error that we encounter, the `TypeError`.  For example a common mistake is to write something like this:
+As Python is a dynamically typed language, there is another sort of error that we encounter, the `TypeError`.  For example a common mistake is to write something like this:
 
 ```python
 num = input("type a number ")
@@ -111,7 +113,7 @@ When designing your own classes it would be wise to make
 use of *type hints*.  
 
 Another feature of Python is
-*decorators*. It is important to note that unlike *type hints*, *decorators* do change the behaviour of methods.  For example we can add a static method to our class.
+*decorators*. It is important to note that unlike *type hints*, *decorators* do change the behaviour of methods.  For example, we can add a static method to our class.
 
 ```python
 class Counter:
@@ -137,8 +139,6 @@ to a method or function it wraps the function in another function.
 
 **Exercise** - write your own decorator which times the
 execution of functions or methods.
-
-<https://realpython.com/python-metaclasses/>
 
 ### Generators and yield
 
@@ -209,7 +209,7 @@ only upper case letters.
 
 ## Programming styles and patterns
 
-Being familiar with the syntax of a programming language and the libraries of functions and classes available is only a part of the skills needed to turn designs into
+Being familiar with the syntax of a programming language, and the libraries of functions and classes available is only a part of the skills needed to turn designs into
 working software.  There are various programming styles, or idioms, and patterns that enable programmers to create high quality software.
 
 ### Pure functions and methods
