@@ -150,7 +150,7 @@ for n in range(3,13,3):
 ```
 
 Although we might think of range() as returning a list, it actually produces a new value for each iteration of the `for` loop.  We call functions, or classes, like this *generators*.
-In Python We can write our own generators by using the `yield` keyword rather than `return`, like this:
+In Python we can write our own generators by using the `yield` keyword rather than `return`, like this:
 
 ```python
 def my_generator(count):
@@ -347,7 +347,7 @@ As the name
 suggests, a *future* represents the result of an operation
 that has not yet returned a value.
 
-Note. In JavaScript *futures* are called *promises.
+Note. In JavaScript *futures* are called *promises*.
 
 
 **Exercise** Read <https://docs.microsoft.com/en-us/azure/azure-functions/functions-reference-python>
