@@ -532,9 +532,16 @@ For examples of significant project that use ```unittest``` see,
 
 * <https://github.com/faif/python-patterns>
 
+### `pytest`
+
+<https://docs.pytest.org/en/latest/>
+
 Using ```pytest``` see,
 
+<http://flask.pocoo.org/docs/1.0/testing/>
+
 * <https://github.com/pallets/flask>
+
 
 ### Mocks
 
