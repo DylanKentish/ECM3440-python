@@ -3,7 +3,7 @@
 ## Advanced Python examples and exercises
 
 These examples assume a reasonable knowledge of Python, and are intended to extend your
-knowledge to include language features used in web programming. 
+knowledge to include language features used in web programming.
 
 **Please note that several of the features described here are only available in
 recent versions of Python 3, and may not apply to Python 2.7.**
@@ -270,7 +270,7 @@ caller(func1, "hello")
 caller(func2, "bye")
 ```
 
-References to functions can be passed as arguments to other functions, assigned to variables, or added to lists.
+References to functions can be passed as arguments to other functions, assigned to variables, or added to lists.  Callbacks are important when building software that uses concurrency.
 
 ### More patterns
 
@@ -317,7 +317,6 @@ See
 and
 <https://docs.python.org/3/library/asyncio-task.html>.
 
-
 ### Threads
 
 Python provides two distinct models of preemptive multitasking, threads and *multiprocessing*.
@@ -348,6 +347,13 @@ suggests, a *future* represents the result of an operation
 that has not yet returned a value.
 
 Note. In JavaScript *futures* are called *promises*.
+
+### Signals
+
+Python programs can typically be forced to quit by typing CTRL+C in 
+the terminal/shell window the Python program was run from.  This uses a an inter-process communication mechanism called a *signal*.  You cannot use signals to communicate between processes in a Python program.  See the documentation for the signal library to learn why. <https://docs.python.org/3/library/signal.html>
+
+Signal are however useful for programs that use concurrency, as typically these are long running and signals can be used to tell the program to stop, reload its configuration, or any other appropriate task.
 
 
 **Exercise** Read <https://docs.microsoft.com/en-us/azure/azure-functions/functions-reference-python>
