@@ -276,7 +276,7 @@ References to functions can be passed as arguments to other functions, assigned 
 
 When programming in any object oriented language it is important not just to make use of re-usable components, but also to learn and make use of common design patterns.
 
-See <https://github.com/faif/python-patterns>
+See <https://github.com/faif/python-patterns>  and <https://python-3-patterns-idioms-test.readthedocs.io/en/latest/>
 
 ## Multitasking and concurrency
 
