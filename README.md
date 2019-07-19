@@ -18,6 +18,10 @@ From your introductory Python classes you should be familiar with
 variables, built in types, statements, keywords, functions, modules and namespaces. I won't go back over those, instead I'll introduce other Python language features that should help you learn to create better
 programs.
 
+## Installing Python
+
+For Windows 10 Microsoft see <https://docs.microsoft.com/en-us/windows/python/>
+
 ### Type hints and linting
 
 If you edit Python scripts using an editor, or
